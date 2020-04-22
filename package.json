@@ -14,9 +14,14 @@
     "eslint-config-exivity": "^1.6.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
-    "eslint-plugin-jest-formatting": "^1.2.0"
+    "eslint-plugin-jest-formatting": "^1.2.0",
+    "rimraf": "3.0.2",
+    "typescript": "3.8.3"
   },
-  "dependencies": {
-    "typescript": "^3.8.3"
+  "dependencies": {},
+  "scripts": {
+    "build": "yarn build:clean && tsc --noEmit false --declaration true",
+    "build:clean": "rimraf lib",
+    "watch": "tsc --noEmit false --declaration true --watch"
   }
 }
