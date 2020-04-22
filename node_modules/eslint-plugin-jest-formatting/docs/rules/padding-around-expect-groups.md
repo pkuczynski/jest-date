@@ -1,0 +1,35 @@
+# padding-around-expect-groups
+
+## Rule Details
+
+This rule enforces a line of padding before _and_ after 1 or more `expect` statements
+
+Note that it doesn't add/enforce a padding line if it's the last statement in its scope and
+it doesn't add/enforce padding between two or more adjacent `expect` statements.
+
+Examples of **incorrect** code for this rule:
+
+```js
+test('thing one', () => {
+  let abc = 123;
+  expect(abc).toEqual(123);
+  expect(123).toEqual(abc);
+  abc = 456;
+  expect(abc).toEqual(456);
+});
+```
+
+Examples of **correct** code for this rule:
+
+```js
+test('thing one', () => {
+  let abc = 123;
+
+  expect(abc).toEqual(123);
+  expect(123).toEqual(abc);
+
+  abc = 456;
+
+  expect(abc).toEqual(456);
+});
+```
