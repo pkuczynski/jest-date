@@ -2,26 +2,26 @@
   "name": "jest-dates",
   "version": "1.0.0",
   "description": "Custom jest matchers to test dates",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:Stefanwullems/jest-dates.git",
   "author": "stefanwullems <stefan@exivity.com>",
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "eslint": "^6.8.0",
-    "eslint-config-exivity": "^1.6.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.8.2",
-    "eslint-plugin-jest-formatting": "^1.2.0",
-    "rimraf": "3.0.2",
-    "typescript": "3.8.3"
+    "kcd-scripts": "^5.10.0",
+    "pretty-format": "^25.4.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@babel/runtime": "^7.9.2",
+    "date-fns": "^2.12.0"
+  },
   "scripts": {
-    "build": "yarn build:clean && tsc --noEmit false --declaration true",
-    "build:clean": "rimraf lib",
-    "watch": "tsc --noEmit false --declaration true --watch"
+    "build": "kcd-scripts build",
+    "format": "kcd-scripts format",
+    "lint": "kcd-scripts lint",
+    "setup": "npm install && npm run validate -s",
+    "test": "kcd-scripts test",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "validate": "kcd-scripts validate"
   }
 }
