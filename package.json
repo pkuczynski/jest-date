@@ -1,0 +1,10 @@
+{
+  "name": "jest-dates",
+  "version": "1.0.0",
+  "description": "Custom jest matchers to test dates",
+  "main": "lib/index.js",
+  "repository": "git@github.com:Stefanwullems/jest-dates.git",
+  "author": "stefanwullems <stefan@exivity.com>",
+  "license": "MIT",
+  "private": false
+}
