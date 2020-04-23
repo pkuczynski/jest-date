@@ -36,6 +36,7 @@ clear to read and to maintain.
 - [Usage](#usage)
 - [Custom matchers](#custom-matchers)
   - [`toBeBefore`](#tobebefore)
+  - [`toBeAfter`](#tobeafter)
 - [Inspiration](#inspiration)
 - [Other Solutions](#other-solutions)
 - [LICENSE](#license)
@@ -98,11 +99,31 @@ This allows you to check whether a date is before another.
 #### Examples
 
 ```javascript
-expect(new Date('1970-01-01')).toBeBefore(new Date('2020-01-01')) // ✔️ pass
-expect(new Date('2020-01-01')).toBeBefore(new Date('197--01-01')) // ❌ fail
+expect(new Date('1970')).toBeBefore(new Date('2020')) // ✔️ pass
+expect(new Date('2020')).toBeBefore(new Date('1970')) // ❌ fail
 
-expect(new Date('1970-01-01')).not.toBeBefore(new Date('2020-01-01')) // ❌ fail
-expect(new Date('2020-01-01')).not.toBeBefore(new Date('197--01-01')) // ✔️ pass
+expect(new Date('1970')).not.toBeBefore(new Date('2020')) // ❌ fail
+expect(new Date('2020')).not.toBeBefore(new Date('197-')) // ✔️ pass
+```
+
+<hr />
+
+### `toBeAfter`
+
+```typescript
+toBeAfter()
+```
+
+This allows you to check whether a date is after another.
+
+#### Examples
+
+```javascript
+expect(new Date('2020')).toBeAfter(new Date('1970')) // ✔️ pass
+expect(new Date('1970')).toBeAfter(new Date('2020')) // ❌ fail
+
+expect(new Date('2020')).not.toBeAfter(new Date('1970')) // ❌ fail
+expect(new Date('1970')).not.toBeAfter(new Date('2020')) // ✔️ pass
 ```
 
 <hr />
