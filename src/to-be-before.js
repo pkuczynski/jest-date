@@ -3,8 +3,8 @@ import {isBefore} from 'date-fns'
 import {checkDate} from './utils'
 
 export function toBeBefore(received, expected) {
-  checkDate(expected, toBeBefore, this)
-  checkDate(received, toBeBefore, this)
+  checkDate('received', received, toBeBefore, this)
+  checkDate('expected', expected, toBeBefore, this)
 
   return {
     pass: isBefore(received, expected),

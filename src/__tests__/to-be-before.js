@@ -9,23 +9,39 @@ describe('.toBeBefore', () => {
     expect(() => {
       expect(new Date('bla')).toBeBefore(new Date('2021-01-01'))
     }).toThrowError()
+
+    expect(() => {
+      expect(new Date('bla')).not.toBeBefore(new Date('2021-01-01'))
+    }).toThrowError()
   })
 
   test('throws when received is not a date', () => {
     expect(() => {
       expect('2020-01-01').toBeBefore(new Date('2021-01-01'))
     }).toThrowError()
+
+    expect(() => {
+      expect('2020-01-01').not.toBeBefore(new Date('2021-01-01'))
+    }).toThrowError()
   })
 
   test('throws when expected is not a valid date', () => {
-    // expect(() => {
-    expect(new Date('2020-01-01')).toBeBefore(new Date('bla'))
-    // }).toThrowError()
+    expect(() => {
+      expect(new Date('2020-01-01')).toBeBefore(new Date('bla'))
+    }).toThrowError()
+
+    expect(() => {
+      expect(new Date('2020-01-01')).not.toBeBefore(new Date('bla'))
+    }).toThrowError()
   })
 
   test('throws when expected is not a date', () => {
     expect(() => {
       expect(new Date('2020-01-01')).toBeBefore('2021-01-01')
+    }).toThrowError()
+
+    expect(() => {
+      expect(new Date('2020-01-01')).not.toBeBefore('2021-01-01')
     }).toThrowError()
   })
 })
