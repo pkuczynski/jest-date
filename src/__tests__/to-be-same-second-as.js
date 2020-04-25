@@ -1,5 +1,10 @@
+import {testExpectedMustBeADate, testReceivedMustBeADate} from '../test-utils'
+
 /* eslint-disable max-lines-per-function */
 describe('.toBeSameSecondAs', () => {
+  testExpectedMustBeADate('toBeSameSecondAs', {receivedValue: new Date()})
+  testReceivedMustBeADate('toBeSameSecondAs', {expectedValue: new Date()})
+
   test('passes when date is same second', () => {
     expect(new Date('2000-01-01T00:00:00.999')).toBeSameSecondAs(
       new Date('2000-01-01T00:00:00'),
@@ -26,58 +31,6 @@ describe('.toBeSameSecondAs', () => {
     expect(() => {
       expect(new Date('2000-01-01T00:00:00')).not.toBeSameSecondAs(
         new Date('2000-01-01T00:00:00'),
-      )
-    }).toThrowError()
-  })
-
-  test('throws when received is not a valid date', () => {
-    expect(() => {
-      expect(new Date('bla')).toBeSameSecondAs(new Date('2000-01-01T00:00:00'))
-    }).toThrowError()
-
-    expect(() => {
-      expect(new Date('bla')).not.toBeSameSecondAs(
-        new Date('2000-01-01T00:00:00'),
-      )
-    }).toThrowError()
-  })
-
-  test('throws when received is not a date', () => {
-    expect(() => {
-      expect('2000-01-01T00:00:00').toBeSameSecondAs(
-        new Date('2000-01-01T00:00:00'),
-      )
-    }).toThrowError()
-
-    expect(() => {
-      expect('2000-01-01T00:00:00').not.toBeSameSecondAs(
-        new Date('2000-01-01T00:00:01'),
-      )
-    }).toThrowError()
-  })
-
-  test('throws when expected is not a valid date', () => {
-    expect(() => {
-      expect(new Date('2000-01-01T00:00:00')).toBeSameSecondAs(new Date('bla'))
-    }).toThrowError()
-
-    expect(() => {
-      expect(new Date('2000-01-01T00:00:00')).not.toBeSameSecondAs(
-        new Date('bla'),
-      )
-    }).toThrowError()
-  })
-
-  test('throws when expected is not a date', () => {
-    expect(() => {
-      expect(new Date('2000-01-01T00:00:00')).toBeSameSecondAs(
-        '2000-01-01T00:00:00.999',
-      )
-    }).toThrowError()
-
-    expect(() => {
-      expect(new Date('2000-01-01T00:00:00')).not.toBeSameSecondAs(
-        '2000-01-01T00:00:00',
       )
     }).toThrowError()
   })

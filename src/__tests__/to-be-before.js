@@ -1,47 +1,27 @@
+import {testExpectedMustBeADate, testReceivedMustBeADate} from '../test-utils'
+
 /* eslint-disable max-lines-per-function */
 describe('.toBeBefore', () => {
-  test('handles date input', () => {
+  testExpectedMustBeADate('toBeBefore', {receivedValue: new Date()})
+  testReceivedMustBeADate('toBeBefore', {expectedValue: new Date()})
+
+  test('passes when date is before', () => {
     expect(new Date('1970')).toBeBefore(new Date('2020'))
+  })
+
+  test('fails when date is after', () => {
+    expect(() => {
+      expect(new Date('2020')).toBeBefore(new Date('1970'))
+    }).toThrowError()
+  })
+
+  test('fails when date is before and assertion is inverted', () => {
+    expect(() => {
+      expect(new Date('1970')).not.toBeBefore(new Date('2020'))
+    }).toThrowError()
+  })
+
+  test('passes when date is after and assertion is inverted', () => {
     expect(new Date('2020')).not.toBeBefore(new Date('1970'))
-  })
-
-  test('throws when received is not a valid date', () => {
-    expect(() => {
-      expect(new Date('bla')).toBeBefore(new Date('2020'))
-    }).toThrowError()
-
-    expect(() => {
-      expect(new Date('bla')).not.toBeBefore(new Date('2020'))
-    }).toThrowError()
-  })
-
-  test('throws when received is not a date', () => {
-    expect(() => {
-      expect('1970').toBeBefore(new Date('2020'))
-    }).toThrowError()
-
-    expect(() => {
-      expect('2020').not.toBeBefore(new Date('1970'))
-    }).toThrowError()
-  })
-
-  test('throws when expected is not a valid date', () => {
-    expect(() => {
-      expect(new Date('1970')).toBeBefore(new Date('bla'))
-    }).toThrowError()
-
-    expect(() => {
-      expect(new Date('1970')).not.toBeBefore(new Date('bla'))
-    }).toThrowError()
-  })
-
-  test('throws when expected is not a date', () => {
-    expect(() => {
-      expect(new Date('1970')).toBeBefore('2020')
-    }).toThrowError()
-
-    expect(() => {
-      expect(new Date('2020')).not.toBeBefore('1970')
-    }).toThrowError()
   })
 })
