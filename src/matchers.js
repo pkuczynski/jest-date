@@ -1,5 +1,6 @@
 import {toBeBefore} from './to-be-before'
 import {toBeAfter} from './to-be-after'
 import {toBeSameSecondAs} from './to-be-same-second-as'
+import {toBeSameMinuteAs} from './to-be-same-minute-as'
 
-export {toBeBefore, toBeAfter, toBeSameSecondAs}
+export {toBeBefore, toBeAfter, toBeSameSecondAs, toBeSameMinuteAs}
