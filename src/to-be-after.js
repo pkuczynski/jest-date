@@ -1,6 +1,9 @@
 import {matcherHint, printReceived, printExpected} from 'jest-matcher-utils'
-import {isAfter} from 'date-fns'
+import {isAfter, formatDistanceStrict} from 'date-fns'
 import {checkDate} from './utils'
+
+const MESSAGE_TEMPLATE =
+  'Expected date {received} {shakespeare} after {expected}, but it was {distance} {relation}'
 
 export function toBeAfter(received, expected) {
   checkDate('received', received, toBeAfter, this)
@@ -9,17 +12,18 @@ export function toBeAfter(received, expected) {
   return {
     pass: isAfter(received, expected),
     message: () => {
-      const is = isAfter(expected, received) ? 'to be' : 'not to be'
       return [
         matcherHint(
-          `${this.isNot ? '.not' : ''}.toBeAfter`,
-          expected,
-          received,
+          `${this.isNot ? '.not' : ''}.${toBeAfter.name}`,
+          expected.toISOString(),
+          received.toISOString(),
         ),
         '',
-        `Expected date ${printReceived(received)} ${is} after ${printExpected(
-          expected,
-        )}`,
+        MESSAGE_TEMPLATE.replace('{received}', printReceived(received))
+          .replace('{shakespeare}', this.isNot ? 'not to be' : 'to be')
+          .replace('{expected}', printExpected(expected))
+          .replace('{distance}', formatDistanceStrict(expected, received))
+          .replace('{relation}', this.isNot ? 'after' : 'before'),
       ].join('\n')
     },
   }

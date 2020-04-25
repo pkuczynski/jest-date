@@ -2,7 +2,7 @@
 describe('.toBeBefore', () => {
   test('handles date input', () => {
     expect(new Date('1970')).toBeBefore(new Date('2020'))
-    expect(new Date('2020')).not.toBeBefore(new Date('1970'))
+    expect(new Date('2020')).toBeBefore(new Date('1970'))
   })
 
   test('throws when received is not a valid date', () => {
