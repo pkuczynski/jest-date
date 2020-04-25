@@ -37,8 +37,8 @@ clear to read and to maintain.
 - [Custom matchers](#custom-matchers)
   - [`toBeBefore`](#tobebefore)
   - [`toBeAfter`](#tobeafter)
+  - [`toBeSameSecondAs`](#tobesamesecondas)
 - [Inspiration](#inspiration)
-- [Other Solutions](#other-solutions)
 - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -86,12 +86,12 @@ expect.extend({toBeBefore, toBeSameMonthAs})
 
 `jest-date` can work with any library or framework. The custom matcher examples below are written using
 functions from the awesome [date-fns][date-fns] library (e.g. `isBefore`,
-`isSameDayAs`, `isWithinInterval`, etc.)
+`isSameDayAs`, `formatDistance`, etc.)
 
 ### `toBeBefore`
 
 ```typescript
-toBeBefore()
+toBeBefore(date: Date)
 ```
 
 This allows you to check whether a date is before another.
@@ -103,7 +103,7 @@ expect(new Date('1970')).toBeBefore(new Date('2020')) // ✔️ pass
 expect(new Date('2020')).toBeBefore(new Date('1970')) // ❌ fail
 
 expect(new Date('1970')).not.toBeBefore(new Date('2020')) // ❌ fail
-expect(new Date('2020')).not.toBeBefore(new Date('197-')) // ✔️ pass
+expect(new Date('2020')).not.toBeBefore(new Date('1970')) // ✔️ pass
 ```
 
 <hr />
@@ -111,7 +111,7 @@ expect(new Date('2020')).not.toBeBefore(new Date('197-')) // ✔️ pass
 ### `toBeAfter`
 
 ```typescript
-toBeAfter()
+toBeAfter(date: Date)
 ```
 
 This allows you to check whether a date is after another.
@@ -124,6 +124,24 @@ expect(new Date('1970')).toBeAfter(new Date('2020')) // ❌ fail
 
 expect(new Date('2020')).not.toBeAfter(new Date('1970')) // ❌ fail
 expect(new Date('1970')).not.toBeAfter(new Date('2020')) // ✔️ pass
+```
+
+### `toBeSameSecondAs`
+
+```typescript
+toBeSameSecondAs(date: Date)
+```
+
+This allows you to check whether a date is after another.
+
+#### Examples
+
+```javascript
+expect(new Date('2000-01-01T00:00:01')).toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ✔️ pass
+expect(new Date('1999-12-31T23:59:59')).toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ❌ fail
+
+expect(new Date('2000-01-01T00:00:01')).not.toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ❌ fail
+expect(new Date('1999-12-31T23:59:59')).not.toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ✔️ pass
 ```
 
 <hr />

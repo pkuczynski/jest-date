@@ -6,6 +6,7 @@ import {
   printReceived,
   printExpected,
 } from 'jest-matcher-utils'
+import {isValid} from 'date-fns'
 
 class NotADateError extends Error {
   constructor(type, date, matcherFn, context) {
@@ -36,15 +37,9 @@ class NotADateError extends Error {
 }
 
 function checkDate(type, date, ...args) {
-  if (date instanceof Date === false || isInvalidDate(date)) {
+  if (date instanceof Date === false || !isValid(date)) {
     throw new NotADateError(type, date, ...args)
   }
-}
-
-function isInvalidDate(date) {
-  // Reference: https://www.geeksforgeeks.org/how-to-check-a-date-is-valid-or-not-using-javascript/
-  // eslint-disable-next-line no-self-compare
-  return date.getTime() !== date.getTime()
 }
 
 export {NotADateError, checkDate}
