@@ -1,27 +1,14 @@
-import {testExpectedMustBeADate, testReceivedMustBeADate} from '../test-utils'
+import {testMatcher, property} from '../test-utils'
 
-/* eslint-disable max-lines-per-function */
-describe('.toBeAfter', () => {
-  testExpectedMustBeADate('toBeAfter', {receivedValue: new Date()})
-  testReceivedMustBeADate('toBeAfter', {expectedValue: new Date()})
-
-  test('passes when date is after', () => {
-    expect(new Date('2020')).toBeAfter(new Date('1970'))
-  })
-
-  test('fails when date is before', () => {
-    expect(() => {
-      expect(new Date('1970')).toBeAfter(new Date('2020'))
-    }).toThrowError()
-  })
-
-  test('fails when date is after and assertion is inverted', () => {
-    expect(() => {
-      expect(new Date('2020')).not.toBeAfter(new Date('1970'))
-    }).toThrowError()
-  })
-
-  test('passes when date is before and assertion is inverted', () => {
-    expect(new Date('1970')).not.toBeAfter(new Date('2020'))
-  })
-})
+testMatcher('toBeAfter', [
+  property.passes('when date is after', {
+    expected: new Date('1970'),
+    received: new Date('2020'),
+  }),
+  property.fails('when date is before', {
+    expected: new Date('2020'),
+    received: new Date('1970'),
+  }),
+  property.expectedMustBeADate({receivedValue: new Date()}),
+  property.receivedMustBeADate({expectedValue: new Date()}),
+])
