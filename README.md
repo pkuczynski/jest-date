@@ -85,7 +85,7 @@ expect.extend({toBeBefore, toBeSameMonthAs})
 ## Custom matchers
 
 `jest-date` can work with any library or framework. The custom matcher examples below are written using
-functions from the `date-fns` library (e.g. `isBefore`,
+functions from the awesome [date-fns][date-fns] library (e.g. `isBefore`,
 `isSameDayAs`, `isWithinInterval`, etc.)
 
 ### `toBeBefore`
@@ -132,11 +132,14 @@ expect(new Date('1970')).not.toBeAfter(new Date('2020')) // ✔️ pass
 
 This library was created because as far as I know, 
 there is no matcher library out there dedicated to only comparing dates.
+I ended up using the functions from [date-fns][date-fns] to create assertions like this one:
 
-## Other Solutions
+```javascript
+expect(isSameDay(date1, date2)).toBe(true)
+```
 
-I'm not aware of any, if you are please [make a pull request][prs] and add it
-here!
+But when this fails, you get no feedback at all other than the fact that the dates are not the same day.
+By making date matchers with helpful failure messages, I hope to make the debugging lives of developers a little bit easier.
 
 ## LICENSE
 
@@ -145,4 +148,5 @@ MIT
 [jest]: https://facebook.github.io/jest/
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
+[date-fns]: https://date-fns.org/
 
