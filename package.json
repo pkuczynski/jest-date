@@ -1,12 +1,17 @@
 {
   "name": "jest-date",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom jest matchers to test dates",
   "main": "dist/index.js",
   "repository": "git@github.com:Stefanwullems/jest-date.git",
   "author": "stefanwullems <stefan@exivity.com>",
   "license": "MIT",
   "private": false,
+  "keywords": [
+    "date",
+    "date-fns",
+    "jest"
+  ],
   "devDependencies": {
     "kcd-scripts": "5.6.0",
     "pretty-format": "^25.4.0"
