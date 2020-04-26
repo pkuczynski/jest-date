@@ -200,6 +200,30 @@ expect(addHours(date, 2)).not.toBeSameHourAs(date) // ✔️ pass
 
 <hr />
 
+### `toBeSameDayAs`
+
+```typescript
+toBeSameDayAs(date: Date)
+```
+
+This allows you to check whether a date is in the same day as another.
+
+#### Examples
+
+```javascript
+import {startOfDay, addDays} from 'date-fns'
+
+const date = new Date()
+
+expect(startOfDay(date)).toBeSameDayAs(date) // ✔️ pass
+expect(addDays(date, 2)).toBeSameDayAs(date) // ❌ fail
+
+expect(startOfDay(date)).not.toBeSameDayAs(date) // ❌ fail
+expect(addDays(date, 2)).not.toBeSameDayAs(date) // ✔️ pass
+```
+
+<hr />
+
 ## Inspiration
 
 This library was created because as far as I know, 

@@ -3,6 +3,7 @@ import {toBeAfter} from './to-be-after'
 import {toBeSameSecondAs} from './to-be-same-second-as'
 import {toBeSameMinuteAs} from './to-be-same-minute-as'
 import {toBeSameHourAs} from './to-be-same-hour-as'
+import {toBeSameDayAs} from './to-be-same-day-as'
 
 export {
   toBeBefore,
@@ -10,4 +11,5 @@ export {
   toBeSameSecondAs,
   toBeSameMinuteAs,
   toBeSameHourAs,
+  toBeSameDayAs,
 }
