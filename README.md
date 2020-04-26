@@ -44,6 +44,7 @@ clear to read and to maintain.
   - [`toBeSameWeekAs`](#tobesameweekas)
   - [`toBeSameMonthAs`](#tobesamemonthas)
   - [`toBeSameQuarterAs`](#tobesamequarteras)
+  - [`toBeSameYearAs`](#tobesameyearas)
 - [Inspiration](#inspiration)
 - [LICENSE](#license)
 
@@ -296,6 +297,30 @@ expect(addQuarters(date, 2)).toBeSameQuarterAs(date) // ❌ fail
 
 expect(startOfQuarter(date)).not.toBeSameQuarterAs(date) // ❌ fail
 expect(addQuarters(date, 2)).not.toBeSameQuarterAs(date) // ✔️ pass
+```
+
+<hr />
+
+### `toBeSameYearAs`
+
+```typescript
+toBeSameYearAs(date: Date)
+```
+
+This allows you to check whether a date is in the same year as another.
+
+#### Examples
+
+```javascript
+import {startOfYear, addYears} from 'date-fns'
+
+const date = new Date()
+
+expect(startOfYear(date)).toBeSameYearAs(date) // ✔️ pass
+expect(addYears(date, 2)).toBeSameYearAs(date) // ❌ fail
+
+expect(startOfYear(date)).not.toBeSameYearAs(date) // ❌ fail
+expect(addYears(date, 2)).not.toBeSameYearAs(date) // ✔️ pass
 ```
 
 <hr />
