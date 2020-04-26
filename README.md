@@ -224,6 +224,55 @@ expect(addDays(date, 2)).not.toBeSameDayAs(date) // ✔️ pass
 
 <hr />
 
+### `toBeSameWeekAs`
+
+```typescript
+toBeSameWeekAs(date: Date)
+```
+
+This allows you to check whether a date is in the same week as another.
+
+#### Examples
+
+```javascript
+import {startOfWeek, addWeeks} from 'date-fns'
+
+const date = new Date()
+
+expect(startOfWeek(date)).toBeSameWeekAs(date) // ✔️ pass
+expect(addWeeks(date, 2)).toBeSameWeekAs(date) // ❌ fail
+
+expect(startOfWeek(date)).not.toBeSameWeekAs(date) // ❌ fail
+expect(addWeeks(date, 2)).not.toBeSameWeekAs(date) // ✔️ pass
+```
+
+<hr />
+
+### `toBeSameWeekAs`
+
+```typescript
+toBeSameMonthAs(date: Date)
+```
+
+This allows you to check whether a date is in the same month as another.
+
+#### Examples
+
+```javascript
+import {startOfMonth, addMonths} from 'date-fns'
+
+const date = new Date()
+
+expect(startOfMonth(date)).toBeSameMonthAs(date) // ✔️ pass
+expect(addMonths(date, 2)).toBeSameMonthAs(date) // ❌ fail
+
+expect(startOfMonth(date)).not.toBeSameMonthAs(date) // ❌ fail
+expect(addMonths(date, 2)).not.toBeSameMonthAs(date) // ✔️ pass
+```
+
+<hr />
+
+
 ## Inspiration
 
 This library was created because as far as I know, 
