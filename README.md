@@ -39,6 +39,7 @@ clear to read and to maintain.
   - [`toBeAfter`](#tobeafter)
   - [`toBeSameSecondAs`](#tobesamesecondas)
   - [`toBeSameMinuteAs`](#tobesameminuteas)
+  - [`toBeSameHourAs`](#tobesamehouras)
 - [Inspiration](#inspiration)
 - [LICENSE](#license)
 
@@ -153,7 +154,7 @@ expect(new Date('1999-12-31T23:59:59')).not.toBeSameSecondAs(new Date('2000-01-0
 toBeSameMinuteAs(date: Date)
 ```
 
-This allows you to check whether a date is in the same second as another.
+This allows you to check whether a date is in the same minute as another.
 
 #### Examples
 
@@ -163,6 +164,26 @@ expect(new Date('1999-12-31T23:59')).toBeSameMinuteAs(new Date('2000-01-01T00:00
 
 expect(new Date('2000-01-01T00:00:30')).not.toBeSameMinuteAs(new Date('2000-01-01T00:00')) // ❌ fail
 expect(new Date('1999-12-31T23:59')).not.toBeSameMinuteAs(new Date('2000-01-01T00:00')) // ✔️ pass
+```
+
+<hr />
+
+### `toBeSameHourAs`
+
+```typescript
+toBeSameHourAs(date: Date)
+```
+
+This allows you to check whether a date is in the same hour as another.
+
+#### Examples
+
+```javascript
+expect(new Date('2000-01-01T00:30')).toBeSameHourAs(new Date('2000-01-01T00:00')) // ✔️ pass
+expect(new Date('1999-12-31T23:00')).toBeSameHourAs(new Date('2000-01-01T00:00')) // ❌ fail
+
+expect(new Date('2000-01-01T00:30')).not.toBeSameHourAs(new Date('2000-01-01T00:00')) // ❌ fail
+expect(new Date('1999-12-31T23:00')).not.toBeSameHourAs(new Date('2000-01-01T00:00')) // ✔️ pass
 ```
 
 <hr />
