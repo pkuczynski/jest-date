@@ -6,6 +6,7 @@ import {toBeSameHourAs} from './to-be-same-hour-as'
 import {toBeSameDayAs} from './to-be-same-day-as'
 import {toBeSameWeekAs} from './to-be-same-week-as'
 import {toBeSameMonthAs} from './to-be-same-month-as'
+import {toBeSameQuarterAs} from './to-be-same-quarter-as'
 
 export {
   toBeBefore,
@@ -16,4 +17,5 @@ export {
   toBeSameDayAs,
   toBeSameWeekAs,
   toBeSameMonthAs,
+  toBeSameQuarterAs,
 }

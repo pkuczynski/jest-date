@@ -40,6 +40,10 @@ clear to read and to maintain.
   - [`toBeSameSecondAs`](#tobesamesecondas)
   - [`toBeSameMinuteAs`](#tobesameminuteas)
   - [`toBeSameHourAs`](#tobesamehouras)
+  - [`toBeSameDayAs`](#tobesamedayas)
+  - [`toBeSameWeekAs`](#tobesameweekas)
+  - [`toBeSameMonthAs`](#tobesamemonthas)
+  - [`toBeSameQuarterAs`](#tobesamequarteras)
 - [Inspiration](#inspiration)
 - [LICENSE](#license)
 
@@ -248,7 +252,7 @@ expect(addWeeks(date, 2)).not.toBeSameWeekAs(date) // ✔️ pass
 
 <hr />
 
-### `toBeSameWeekAs`
+### `toBeSameMonthAs`
 
 ```typescript
 toBeSameMonthAs(date: Date)
@@ -268,6 +272,30 @@ expect(addMonths(date, 2)).toBeSameMonthAs(date) // ❌ fail
 
 expect(startOfMonth(date)).not.toBeSameMonthAs(date) // ❌ fail
 expect(addMonths(date, 2)).not.toBeSameMonthAs(date) // ✔️ pass
+```
+
+<hr />
+
+### `toBeSameQuarterAs`
+
+```typescript
+toBeSameQuarterAs(date: Date)
+```
+
+This allows you to check whether a date is in the same quarter as another.
+
+#### Examples
+
+```javascript
+import {startOfQuarter, addQuarters} from 'date-fns'
+
+const date = new Date()
+
+expect(startOfQuarter(date)).toBeSameQuarterAs(date) // ✔️ pass
+expect(addQuarters(date, 2)).toBeSameQuarterAs(date) // ❌ fail
+
+expect(startOfQuarter(date)).not.toBeSameQuarterAs(date) // ❌ fail
+expect(addQuarters(date, 2)).not.toBeSameQuarterAs(date) // ✔️ pass
 ```
 
 <hr />
