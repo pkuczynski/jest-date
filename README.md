@@ -139,11 +139,15 @@ This allows you to check whether a date is in the same second as another.
 #### Examples
 
 ```javascript
-expect(new Date('2000-01-01T00:00:00.5')).toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ✔️ pass
-expect(new Date('1999-12-31T23:59:59')).toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ❌ fail
+import {startOfSecond, addSeconds} from 'date-fns'
 
-expect(new Date('2000-01-01T00:00:00.5')).not.toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ❌ fail
-expect(new Date('1999-12-31T23:59:59')).not.toBeSameSecondAs(new Date('2000-01-01T00:00:00')) // ✔️ pass
+const date = new Date()
+
+expect(startOfSecond(date)).toBeSameSecondAs(date) // ✔️ pass
+expect(addSeconds(date, 2)).toBeSameSecondAs(date) // ❌ fail
+
+expect(startOfSecond(date)).not.toBeSameSecondAs(date) // ❌ fail
+expect(addSeconds(date, 2)).not.toBeSameSecondAs(date) // ✔️ pass
 ```
 
 <hr />
@@ -159,11 +163,15 @@ This allows you to check whether a date is in the same minute as another.
 #### Examples
 
 ```javascript
-expect(new Date('2000-01-01T00:00:30')).toBeSameMinuteAs(new Date('2000-01-01T00:00')) // ✔️ pass
-expect(new Date('1999-12-31T23:59')).toBeSameMinuteAs(new Date('2000-01-01T00:00')) // ❌ fail
+import {startOfMinute, addMinutes} from 'date-fns'
 
-expect(new Date('2000-01-01T00:00:30')).not.toBeSameMinuteAs(new Date('2000-01-01T00:00')) // ❌ fail
-expect(new Date('1999-12-31T23:59')).not.toBeSameMinuteAs(new Date('2000-01-01T00:00')) // ✔️ pass
+const date = new Date()
+
+expect(startOfMinute(date)).toBeSameMinuteAs(date) // ✔️ pass
+expect(addMinutes(date, 2)).toBeSameMinuteAs(date) // ❌ fail
+
+expect(startOfMinute(date)).not.toBeSameMinuteAs(date) // ❌ fail
+expect(addMinutes(date, 2)).not.toBeSameMinuteAs(date) // ✔️ pass
 ```
 
 <hr />
@@ -179,11 +187,15 @@ This allows you to check whether a date is in the same hour as another.
 #### Examples
 
 ```javascript
-expect(new Date('2000-01-01T00:30')).toBeSameHourAs(new Date('2000-01-01T00:00')) // ✔️ pass
-expect(new Date('1999-12-31T23:00')).toBeSameHourAs(new Date('2000-01-01T00:00')) // ❌ fail
+import {startOfHour, addHours} from 'date-fns'
 
-expect(new Date('2000-01-01T00:30')).not.toBeSameHourAs(new Date('2000-01-01T00:00')) // ❌ fail
-expect(new Date('1999-12-31T23:00')).not.toBeSameHourAs(new Date('2000-01-01T00:00')) // ✔️ pass
+const date = new Date()
+
+expect(startOfHour(date)).toBeSameHourAs(date) // ✔️ pass
+expect(addHours(date, 2)).toBeSameHourAs(date) // ❌ fail
+
+expect(startOfHour(date)).not.toBeSameHourAs(date) // ❌ fail
+expect(addHours(date, 2)).not.toBeSameHourAs(date) // ✔️ pass
 ```
 
 <hr />

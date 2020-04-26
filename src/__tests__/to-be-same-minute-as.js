@@ -1,13 +1,16 @@
+import {startOfMinute, addMinutes} from 'date-fns'
 import {testMatcher, property} from '../test-utils'
+
+const date = new Date()
 
 testMatcher('toBeSameMinuteAs', [
   property.passes('when date is same minute', {
-    expected: new Date('2000-01-01T00:00'),
-    received: new Date('2000-01-01T00:00:30'),
+    expected: date,
+    received: startOfMinute(date),
   }),
   property.fails('when date is not same minute', {
-    expected: new Date('2000-01-01T00:00'),
-    received: new Date('1999-12-31T23:59'),
+    expected: date,
+    received: addMinutes(date, 1),
   }),
   property.expectedMustBeADate({receivedValue: new Date()}),
   property.receivedMustBeADate({expectedValue: new Date()}),

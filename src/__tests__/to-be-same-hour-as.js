@@ -1,13 +1,16 @@
+import {endOfHour, addHours} from 'date-fns'
 import {testMatcher, property} from '../test-utils'
+
+const date = new Date()
 
 testMatcher('toBeSameHourAs', [
   property.passes('when date is same hour', {
-    expected: new Date('2000-01-01T00:00'),
-    received: new Date('2000-01-01T00:30'),
+    expected: date,
+    received: endOfHour(date),
   }),
   property.fails('when date is not same hour', {
-    expected: new Date('2000-01-01T00:00'),
-    received: new Date('1999-12-31T23:00'),
+    expected: date,
+    received: addHours(date, 1),
   }),
   property.expectedMustBeADate({receivedValue: new Date()}),
   property.receivedMustBeADate({expectedValue: new Date()}),
