@@ -1,7 +1,20 @@
 import {isMonday} from 'date-fns'
 import {checkDate, deriveWeekdayMessage} from './utils'
 
-export function toBeMonday(received) {
+declare global {
+  namespace jest {
+    interface Matchers<R, T> {
+      /**
+       * Assert whether a date is monday another or not.
+       * @example
+       * expect(new Date()).toBeMonday()
+       */
+      toBeMonday(): R
+    }
+  }
+}
+
+export function toBeMonday(this: jest.MatcherUtils, received: Date) {
   checkDate('received', received, toBeMonday, this)
 
   const messageContext = {

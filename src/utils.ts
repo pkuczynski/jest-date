@@ -9,7 +9,12 @@ import {
 import {isValid, formatDistanceStrict, isBefore, getDay} from 'date-fns'
 
 class NotADateError extends Error {
-  constructor(type, date, matcherFn, context) {
+  constructor(
+    type: 'expected' | 'received',
+    date: Date,
+    matcherFn: Function,
+    context: jest.MatcherUtils,
+  ) {
     super()
 
     /* istanbul ignore next */
@@ -36,13 +41,30 @@ class NotADateError extends Error {
   }
 }
 
-function checkDate(type, date, ...args) {
+function checkDate(
+  type: 'received' | 'expected',
+  date: Date,
+  matcher: Function,
+  context: jest.MatcherUtils,
+) {
   if (date instanceof Date === false || !isValid(date)) {
-    throw new NotADateError(type, date, ...args)
+    throw new NotADateError(type, date, matcher, context)
   }
 }
 
-function deriveRelativeDateMessage({name, expected, received, invert}) {
+interface DeriveRelativeMessage {
+  name: string
+  expected: Date
+  received: Date
+  invert: boolean
+}
+
+function deriveRelativeDateMessage({
+  name,
+  expected,
+  received,
+  invert,
+}: DeriveRelativeMessage) {
   const MESSAGE_TEMPLATE = `{matcher_hint}
   
   Expected date {received} {shakespeare} {expected_relation} {expected}, but it was {actual_relation}.`
@@ -74,7 +96,13 @@ function deriveRelativeDateMessage({name, expected, received, invert}) {
     )
 }
 
-function deriveWeekdayMessage({name, received, invert}) {
+interface DeriveWeekdayMessage {
+  name: string
+  received: Date
+  invert: boolean
+}
+
+function deriveWeekdayMessage({name, received, invert}: DeriveWeekdayMessage) {
   const WEEKDAYS = [
     'sunday',
     'monday',

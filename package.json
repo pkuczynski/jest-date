@@ -13,8 +13,13 @@
     "jest"
   ],
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "kcd-scripts": "5.6.0",
-    "pretty-format": "^25.4.0"
+    "pretty-format": "^25.4.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
@@ -22,7 +27,12 @@
     "jest-matcher-utils": "^25.4.0"
   },
   "scripts": {
-    "build": "kcd-scripts build",
+    "build": "yarn build:clean && tsc && yarn build:root && yarn build:docs",
+    "build:clean": "yarn rimraf dist extend-expect.js extend-expect.d.ts matchers.js matchers.d.ts",
+    "build:root": "tsc matchers.ts --noEmit false --declaration true && tsc extend-expect.ts --noEmit false --declaration true",
+    "publish:major": "yarn build && npm version major && npm publish && yarn build:clean",
+    "publish:minor": "yarn build && npm version minor && npm publish && yarn build:clean",
+    "publish:patch": "yarn build && npm version patch && npm publish && yarn build:clean",
     "build:docs": "yarn doctoc . --maxlevel 3 --notitle",
     "format": "kcd-scripts format",
     "lint": "kcd-scripts lint",
@@ -34,12 +44,22 @@
   "files": [
     "dist",
     "extend-expect.js",
-    "matchers.js"
+    "extend-expect.d.ts",
+    "matchers.js",
+    "matchers.d.ts"
   ],
   "eslintConfig": {
-    "extends": "./node_modules/kcd-scripts/eslint.js",
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "./node_modules/kcd-scripts/eslint.js",
+      "plugin:@typescript-eslint/eslint-recommended"
+    ],
     "rules": {
-      "babel/no-invalid-this": "off"
+      "babel/no-invalid-this": "off",
+      "import/no-unresolved": "off"
     }
   },
   "eslintIgnore": [

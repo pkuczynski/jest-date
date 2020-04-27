@@ -10,5 +10,5 @@ testMatcher('toBeMonday', [
   property.fails('when date is not monday', {
     received: setDay(date, 2),
   }),
-  property.receivedMustBeADate({receivedValue: new Date()}),
+  property.receivedMustBeADate(),
 ])

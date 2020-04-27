@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": false,
+    "allowJs": false,
+    // "isolatedModules": true,
+    "declaration": true,
+    "rootDir": ".",
+    "outDir": "dist"
+  },
+  "include": [
+    "src",
+    "matchers.ts",
+    "extend-expect.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__/**/*",
+    "**/dist/**/*",
+    "src/test-utils.ts"
+  ]
+}
+

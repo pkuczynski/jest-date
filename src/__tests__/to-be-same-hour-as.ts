@@ -12,6 +12,6 @@ testMatcher('toBeSameHourAs', [
     expected: date,
     received: addHours(date, 1),
   }),
-  property.expectedMustBeADate({receivedValue: new Date()}),
-  property.receivedMustBeADate({expectedValue: new Date()}),
+  property.expectedMustBeADate({received: new Date()}),
+  property.receivedMustBeADate({expected: new Date()}),
 ])

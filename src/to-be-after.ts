@@ -1,7 +1,25 @@
 import {isAfter} from 'date-fns'
 import {checkDate, deriveRelativeDateMessage} from './utils'
 
-export function toBeAfter(received, expected) {
+declare global {
+  namespace jest {
+    interface Matchers<R, T> {
+      /**
+       * Assert whether a date is after another or not.
+       * @param {Date} date - Date to compare to
+       * @example
+       * expect(new Date(2020, 8)).toBeAfter(new Date(2017, 8))
+       */
+      toBeAfter(date: Date): R
+    }
+  }
+}
+
+export function toBeAfter(
+  this: jest.MatcherUtils,
+  received: Date,
+  expected: Date,
+) {
   checkDate('received', received, toBeAfter, this)
   checkDate('expected', expected, toBeAfter, this)
 
