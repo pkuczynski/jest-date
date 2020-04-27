@@ -9,6 +9,7 @@ import {toBeSameMonthAs} from './to-be-same-month-as'
 import {toBeSameQuarterAs} from './to-be-same-quarter-as'
 import {toBeSameYearAs} from './to-be-same-year-as'
 import {toBeMonday} from './to-be-monday'
+import {toBeTuesday} from './to-be-tuesday'
 
 export {
   toBeBefore,
@@ -22,4 +23,5 @@ export {
   toBeSameQuarterAs,
   toBeSameYearAs,
   toBeMonday,
+  toBeTuesday,
 }

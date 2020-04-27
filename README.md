@@ -46,6 +46,7 @@ clear to read and to maintain.
   - [`toBeSameQuarterAs`](#tobesamequarteras)
   - [`toBeSameYearAs`](#tobesameyearas)
   - [`toBeMonday`](#tobemonday)
+  - [`toBeTuesday`](#tobetuesday)
 - [Inspiration](#inspiration)
 - [LICENSE](#license)
 
@@ -341,11 +342,35 @@ import {setDay} from 'date-fns'
 
 const date = new Date()
 
-expect(setDay(date, 1)).toBeMonday(date) // ✔️ pass
-expect(setDay(date, 2)).toBeMonday(date) // ❌ fail
+expect(setDay(date, 1)).toBeMonday() // ✔️ pass
+expect(setDay(date, 2)).toBeMonday() // ❌ fail
 
-expect(setDay(date, 1)).not.toBeMonday(date) // ❌ fail
-expect(setDay(date, 2)).not.toBeMonday(date) // ✔️ pass
+expect(setDay(date, 1)).not.toBeMonday() // ❌ fail
+expect(setDay(date, 2)).not.toBeMonday() // ✔️ pass
+```
+
+<hr />
+
+### `toBeTuesday`
+
+```typescript
+toBeTuesday()
+```
+
+This allows you to check whether a date is on a tuesday.
+
+#### Examples
+
+```javascript
+import {setDay} from 'date-fns'
+
+const date = new Date()
+
+expect(setDay(date, 2)).toBeTuesday() // ✔️ pass
+expect(setDay(date, 3)).toBeTuesday() // ❌ fail
+
+expect(setDay(date, 2)).not.toBeTuesday() // ❌ fail
+expect(setDay(date, 3)).not.toBeTuesday() // ✔️ pass
 ```
 
 <hr />
