@@ -1,5 +1,5 @@
 import {isSameWeek} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeSameWeekAs(received, expected) {
   checkDate('received', received, toBeSameWeekAs, this)
@@ -14,6 +14,6 @@ export function toBeSameWeekAs(received, expected) {
 
   return {
     pass: isSameWeek(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

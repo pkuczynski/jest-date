@@ -1,5 +1,5 @@
 import {isSameHour} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeSameHourAs(received, expected) {
   checkDate('received', received, toBeSameHourAs, this)
@@ -14,6 +14,6 @@ export function toBeSameHourAs(received, expected) {
 
   return {
     pass: isSameHour(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

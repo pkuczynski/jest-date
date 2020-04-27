@@ -1,5 +1,5 @@
 import {isSameQuarter} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeSameQuarterAs(received, expected) {
   checkDate('received', received, toBeSameQuarterAs, this)
@@ -14,6 +14,6 @@ export function toBeSameQuarterAs(received, expected) {
 
   return {
     pass: isSameQuarter(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

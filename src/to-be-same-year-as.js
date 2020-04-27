@@ -1,5 +1,5 @@
 import {isSameYear} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeSameYearAs(received, expected) {
   checkDate('received', received, toBeSameYearAs, this)
@@ -14,6 +14,6 @@ export function toBeSameYearAs(received, expected) {
 
   return {
     pass: isSameYear(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

@@ -1,5 +1,5 @@
 import {isBefore} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeBefore(received, expected) {
   checkDate('received', received, toBeBefore, this)
@@ -14,6 +14,6 @@ export function toBeBefore(received, expected) {
 
   return {
     pass: isBefore(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

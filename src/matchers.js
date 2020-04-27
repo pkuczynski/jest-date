@@ -8,6 +8,7 @@ import {toBeSameWeekAs} from './to-be-same-week-as'
 import {toBeSameMonthAs} from './to-be-same-month-as'
 import {toBeSameQuarterAs} from './to-be-same-quarter-as'
 import {toBeSameYearAs} from './to-be-same-year-as'
+import {toBeMonday} from './to-be-monday'
 
 export {
   toBeBefore,
@@ -20,4 +21,5 @@ export {
   toBeSameMonthAs,
   toBeSameQuarterAs,
   toBeSameYearAs,
+  toBeMonday,
 }

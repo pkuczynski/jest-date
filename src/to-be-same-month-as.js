@@ -1,5 +1,5 @@
 import {isSameMonth} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeSameMonthAs(received, expected) {
   checkDate('received', received, toBeSameMonthAs, this)
@@ -14,6 +14,6 @@ export function toBeSameMonthAs(received, expected) {
 
   return {
     pass: isSameMonth(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

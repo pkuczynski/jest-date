@@ -1,5 +1,5 @@
 import {isSameSecond} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeSameSecondAs(received, expected) {
   checkDate('received', received, toBeSameSecondAs, this)
@@ -14,6 +14,6 @@ export function toBeSameSecondAs(received, expected) {
 
   return {
     pass: isSameSecond(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

@@ -6,7 +6,7 @@ import {
   printReceived,
   printExpected,
 } from 'jest-matcher-utils'
-import {isValid, formatDistanceStrict, isBefore} from 'date-fns'
+import {isValid, formatDistanceStrict, isBefore, getDay} from 'date-fns'
 
 class NotADateError extends Error {
   constructor(type, date, matcherFn, context) {
@@ -42,10 +42,10 @@ function checkDate(type, date, ...args) {
   }
 }
 
-function deriveMessage({name, expected, received, invert}) {
+function deriveRelativeDateMessage({name, expected, received, invert}) {
   const MESSAGE_TEMPLATE = `{matcher_hint}
   
-  Expected date {received} {shakespeare} {expected_relation} {expected}, but it was {actual_relation}`
+  Expected date {received} {shakespeare} {expected_relation} {expected}, but it was {actual_relation}.`
 
   return MESSAGE_TEMPLATE.replace(
     '{matcher_hint}',
@@ -74,4 +74,49 @@ function deriveMessage({name, expected, received, invert}) {
     )
 }
 
-export {NotADateError, checkDate, deriveMessage}
+function deriveWeekdayMessage({name, received, invert}) {
+  const WEEKDAYS = [
+    'sunday',
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+  ]
+  const MESSAGE_TEMPLATE = `{matcher_hint}
+  
+  Expected date {received} to be on a {expected_day}, but it was on a {actual_day}.`
+
+  const INVERTED_MESSAGE_TEMPLATE = `{matcher_hint}
+  
+  Expected date {received} not to be on a {expected_day}, but it was.`
+
+  const template = invert ? INVERTED_MESSAGE_TEMPLATE : MESSAGE_TEMPLATE
+
+  return template
+    .replace(
+      '{matcher_hint}',
+      matcherHint(
+        `${invert ? '.not' : ''}.${name}`,
+        received.toISOString(),
+        '',
+      ),
+    )
+    .replace('{received}', printReceived(received))
+    .replace(
+      '{expected_day}',
+      name
+        .split(/(?=[A-Z])/)
+        .slice(-1)[0]
+        .toLowerCase(),
+    )
+    .replace('{actual_day}', WEEKDAYS[getDay(received)])
+}
+
+export {
+  NotADateError,
+  checkDate,
+  deriveRelativeDateMessage,
+  deriveWeekdayMessage,
+}

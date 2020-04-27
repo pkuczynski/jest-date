@@ -1,5 +1,5 @@
 import {isSameDay} from 'date-fns'
-import {checkDate, deriveMessage} from './utils'
+import {checkDate, deriveRelativeDateMessage} from './utils'
 
 export function toBeSameDayAs(received, expected) {
   checkDate('received', received, toBeSameDayAs, this)
@@ -14,6 +14,6 @@ export function toBeSameDayAs(received, expected) {
 
   return {
     pass: isSameDay(received, expected),
-    message: () => deriveMessage(messageContext),
+    message: () => deriveRelativeDateMessage(messageContext),
   }
 }

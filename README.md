@@ -45,6 +45,7 @@ clear to read and to maintain.
   - [`toBeSameMonthAs`](#tobesamemonthas)
   - [`toBeSameQuarterAs`](#tobesamequarteras)
   - [`toBeSameYearAs`](#tobesameyearas)
+  - [`toBeMonday`](#tobemonday)
 - [Inspiration](#inspiration)
 - [LICENSE](#license)
 
@@ -325,6 +326,29 @@ expect(addYears(date, 2)).not.toBeSameYearAs(date) // ✔️ pass
 
 <hr />
 
+### `toBeMonday`
+
+```typescript
+toBeMonday()
+```
+
+This allows you to check whether a date is on a monday.
+
+#### Examples
+
+```javascript
+import {setDay} from 'date-fns'
+
+const date = new Date()
+
+expect(setDay(date, 1)).toBeMonday(date) // ✔️ pass
+expect(setDay(date, 2)).toBeMonday(date) // ❌ fail
+
+expect(setDay(date, 1)).not.toBeMonday(date) // ❌ fail
+expect(setDay(date, 2)).not.toBeMonday(date) // ✔️ pass
+```
+
+<hr />
 
 ## Inspiration
 
@@ -339,6 +363,8 @@ expect(isSameDay(date1, date2)).toBe(true)
 But when this fails, you get no feedback at all other than the fact that the dates are not the same day.
 By making date matchers with helpful failure messages, I hope to make the debugging lives of developers a little bit easier.
 
+Project structure and tooling hugely inspired by [jest-dom][jest-dom]
+
 ## LICENSE
 
 MIT
@@ -347,4 +373,4 @@ MIT
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
 [date-fns]: https://date-fns.org/
-
+[jest-dom]: https://github.com/testing-library/jest-dom
