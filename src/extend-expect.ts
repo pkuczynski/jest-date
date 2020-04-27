@@ -1,39 +1,5 @@
-import {
-  toBeBefore,
-  toBeAfter,
-  toBeSameSecondAs,
-  toBeSameMinuteAs,
-  toBeSameHourAs,
-  toBeSameDayAs,
-  toBeSameWeekAs,
-  toBeSameMonthAs,
-  toBeSameQuarterAs,
-  toBeSameYearAs,
-  toBeMonday,
-  toBeTuesday,
-  toBeWednesday,
-  toBeThursday,
-  toBeFriday,
-  toBeSaturday,
-  toBeSunday,
-} from './matchers'
+import * as matchers from './matchers'
 
-expect.extend({
-  toBeBefore,
-  toBeAfter,
-  toBeSameSecondAs,
-  toBeSameMinuteAs,
-  toBeSameHourAs,
-  toBeSameDayAs,
-  toBeSameWeekAs,
-  toBeSameMonthAs,
-  toBeSameQuarterAs,
-  toBeSameYearAs,
-  toBeMonday,
-  toBeTuesday,
-  toBeWednesday,
-  toBeThursday,
-  toBeFriday,
-  toBeSaturday,
-  toBeSunday,
-})
+expect.extend(matchers)
+
+export {matchers}
