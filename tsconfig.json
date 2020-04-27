@@ -14,13 +14,11 @@
     "allowJs": false,
     // "isolatedModules": true,
     "declaration": true,
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "dist"
   },
   "include": [
-    "src",
-    "matchers.ts",
-    "extend-expect.ts"
+    "src"
   ],
   "exclude": [
     "node_modules",
