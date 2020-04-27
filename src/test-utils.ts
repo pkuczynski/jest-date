@@ -1,5 +1,3 @@
-import {NotADateError} from './utils'
-
 type Property = (name: string) => void
 
 function testMatcher(name: string, properties: Property[]) {
@@ -45,21 +43,21 @@ const property = {
     test('throws when expected is not a valid date', () => {
       expect(() => {
         ;(expect(received) as any)[matcherName](new Date('bla'))
-      }).toThrowError(NotADateError)
+      }).toThrowError()
 
       expect(() => {
         ;(expect(received) as any).not[matcherName](new Date('bla'))
-      }).toThrowError(NotADateError)
+      }).toThrowError()
     })
 
     test('throws when expected is not a date', () => {
       expect(() => {
         ;(expect(received) as any)[matcherName]('2020')
-      }).toThrowError(NotADateError)
+      }).toThrowError()
 
       expect(() => {
         ;(expect(received) as any).not[matcherName]('1970')
-      }).toThrowError(NotADateError)
+      }).toThrowError()
     })
   },
   receivedMustBeADate: ({
@@ -69,22 +67,22 @@ const property = {
   } = {}): Property => matcherName => {
     test('throws when received is not a valid date', () => {
       expect(() => {
-        ;(expect(new Date('bla')) as any)[matcherName](expected)
-      }).toThrowError(NotADateError)
+        ;(expect as any)(new Date('bla'))[matcherName](expected)
+      }).toThrowError()
 
       expect(() => {
         ;(expect(new Date('bla')) as any).not[matcherName](expected)
-      }).toThrowError(NotADateError)
+      }).toThrowError()
     })
 
     test('throws when received is not a date', () => {
       expect(() => {
         ;(expect('1970') as any)[matcherName](expected)
-      }).toThrowError(NotADateError)
+      }).toThrowError()
 
       expect(() => {
         ;(expect('2020') as any).not[matcherName](expected)
-      }).toThrowError(NotADateError)
+      }).toThrowError()
     })
   },
 }

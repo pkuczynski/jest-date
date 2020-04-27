@@ -5,7 +5,7 @@ declare global {
   namespace jest {
     interface Matchers<R, T> {
       /**
-       * Assert whether a date is monday another or not.
+       * Assert whether a date is monday or not.
        * @example
        * expect(new Date()).toBeMonday()
        */

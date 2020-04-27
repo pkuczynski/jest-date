@@ -10,6 +10,11 @@ import {toBeSameQuarterAs} from './to-be-same-quarter-as'
 import {toBeSameYearAs} from './to-be-same-year-as'
 import {toBeMonday} from './to-be-monday'
 import {toBeTuesday} from './to-be-tuesday'
+import {toBeWednesday} from './to-be-wednesday'
+import {toBeThursday} from './to-be-thursday'
+import {toBeFriday} from './to-be-friday'
+import {toBeSaturday} from './to-be-saturday'
+import {toBeSunday} from './to-be-sunday'
 
 export {
   toBeBefore,
@@ -24,4 +29,9 @@ export {
   toBeSameYearAs,
   toBeMonday,
   toBeTuesday,
+  toBeWednesday,
+  toBeThursday,
+  toBeFriday,
+  toBeSaturday,
+  toBeSunday,
 }

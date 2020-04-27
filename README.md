@@ -22,7 +22,7 @@ You want to use [jest][jest] to write tests that assert how dates compare to eac
 
 ## This solution
 
-The `@testing-library/jest-date` library provides a set of custom jest matchers
+The `jest-date` library provides a set of custom jest matchers
 that you can use to extend jest. These will make your tests more declarative,
 clear to read and to maintain.
 
@@ -47,6 +47,11 @@ clear to read and to maintain.
   - [`toBeSameYearAs`](#tobesameyearas)
   - [`toBeMonday`](#tobemonday)
   - [`toBeTuesday`](#tobetuesday)
+  - [`toBeWednesday`](#tobewednesday)
+  - [`toBeThursday`](#tobethursday)
+  - [`toBeFriday`](#tobefriday)
+  - [`toBeSaturday`](#tobesaturday)
+  - [`toBeSunday`](#tobesunday)
 - [Inspiration](#inspiration)
 - [LICENSE](#license)
 
@@ -63,7 +68,7 @@ npm install --save-dev jest-date
 
 ## Usage
 
-Import `@testing-library/jest-date` once (for instance in your [tests setup
+Import `jest-date` once (for instance in your [tests setup
 file][]) and you're good to go:
 
 [tests setup file]:
@@ -338,15 +343,8 @@ This allows you to check whether a date is on a monday.
 #### Examples
 
 ```javascript
-import {setDay} from 'date-fns'
-
-const date = new Date()
-
-expect(setDay(date, 1)).toBeMonday() // ✔️ pass
-expect(setDay(date, 2)).toBeMonday() // ❌ fail
-
-expect(setDay(date, 1)).not.toBeMonday() // ❌ fail
-expect(setDay(date, 2)).not.toBeMonday() // ✔️ pass
+expect(new Date()).toBeMonday()
+expect(new Date()).not.toBeMonday()
 ```
 
 <hr />
@@ -362,15 +360,93 @@ This allows you to check whether a date is on a tuesday.
 #### Examples
 
 ```javascript
-import {setDay} from 'date-fns'
+expect(new Date()).toBeTuesday()
+expect(new Date()).not.toBeTuesday()
+```
 
-const date = new Date()
+<hr />
 
-expect(setDay(date, 2)).toBeTuesday() // ✔️ pass
-expect(setDay(date, 3)).toBeTuesday() // ❌ fail
+### `toBeWednesday`
 
-expect(setDay(date, 2)).not.toBeTuesday() // ❌ fail
-expect(setDay(date, 3)).not.toBeTuesday() // ✔️ pass
+```typescript
+toBeWednesday()
+```
+
+This allows you to check whether a date is on a wednesday.
+
+#### Examples
+
+```javascript
+expect(new Date()).toBeWednesday()
+expect(new Date()).not.toBeWednesday()
+```
+
+<hr />
+
+### `toBeThursday`
+
+```typescript
+toBeThursday()
+```
+
+This allows you to check whether a date is on a thursday.
+
+#### Examples
+
+```javascript
+expect(new Date()).toBeThursday()
+expect(new Date()).not.toBeThursday()
+```
+
+<hr />
+
+### `toBeFriday`
+
+```typescript
+toBeFriday()
+```
+
+This allows you to check whether a date is on a friday.
+
+#### Examples
+
+```javascript
+expect(new Date()).toBeFriday()
+expect(new Date()).not.toBeFriday()
+```
+
+<hr />
+
+### `toBeSaturday`
+
+```typescript
+toBeSaturday()
+```
+
+This allows you to check whether a date is on a saturday.
+
+#### Examples
+
+```javascript
+expect(new Date()).toBeSaturday()
+expect(new Date()).not.toBeSaturday()
+```
+
+<hr />
+
+### `toBeSunday`
+
+```typescript
+toBeSunday()
+```
+
+This allows you to check whether a date is on a Sunday.
+
+#### Examples
+
+```javascript
+expect(new Date()).toBeSunday()
+expect(new Date()).not.toBeSunday()
 ```
 
 <hr />
@@ -388,7 +464,7 @@ expect(isSameDay(date1, date2)).toBe(true)
 But when this fails, you get no feedback at all other than the fact that the dates are not the same day.
 By making date matchers with helpful failure messages, I hope to make the debugging lives of developers a little bit easier.
 
-Project structure and tooling hugely inspired by [jest-dom][jest-dom]
+Project structure and tooling hugely inspired by [@testing-library/jest-dom][jest-dom]
 
 ## LICENSE
 

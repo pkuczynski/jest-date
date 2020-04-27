@@ -11,6 +11,11 @@ import {
   toBeSameYearAs,
   toBeMonday,
   toBeTuesday,
+  toBeWednesday,
+  toBeThursday,
+  toBeFriday,
+  toBeSaturday,
+  toBeSunday,
 } from './matchers'
 
 expect.extend({
@@ -26,4 +31,9 @@ expect.extend({
   toBeSameYearAs,
   toBeMonday,
   toBeTuesday,
+  toBeWednesday,
+  toBeThursday,
+  toBeFriday,
+  toBeSaturday,
+  toBeSunday,
 })
