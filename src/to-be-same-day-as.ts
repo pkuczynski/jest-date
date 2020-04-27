@@ -20,8 +20,8 @@ export function toBeSameDayAs(
   received: Date,
   expected: Date,
 ) {
-  checkDate('received', received, toBeSameDayAs, this)
-  checkDate('expected', expected, toBeSameDayAs, this)
+  checkDate('received', received, toBeSameDayAs, {invert: this.isNot})
+  checkDate('expected', expected, toBeSameDayAs, {invert: this.isNot})
 
   const messageContext = {
     name: toBeSameDayAs.name,

@@ -20,8 +20,8 @@ export function toBeSameQuarterAs(
   received: Date,
   expected: Date,
 ) {
-  checkDate('received', received, toBeSameQuarterAs, this)
-  checkDate('expected', expected, toBeSameQuarterAs, this)
+  checkDate('received', received, toBeSameQuarterAs, {invert: this.isNot})
+  checkDate('expected', expected, toBeSameQuarterAs, {invert: this.isNot})
 
   const messageContext = {
     name: toBeSameQuarterAs.name,

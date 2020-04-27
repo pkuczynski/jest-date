@@ -20,8 +20,8 @@ export function toBeBefore(
   received: Date,
   expected: Date,
 ) {
-  checkDate('received', received, toBeBefore, this)
-  checkDate('expected', expected, toBeBefore, this)
+  checkDate('received', received, toBeBefore, {invert: this.isNot})
+  checkDate('expected', expected, toBeBefore, {invert: this.isNot})
 
   const messageContext = {
     name: toBeBefore.name,

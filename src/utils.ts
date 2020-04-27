@@ -8,12 +8,17 @@ import {
 } from 'jest-matcher-utils'
 import {isValid, formatDistanceStrict, isBefore, getDay} from 'date-fns'
 
+interface NotADateErrorOptions {
+  excludeExpected?: boolean
+  invert?: boolean
+}
+
 class NotADateError extends Error {
   constructor(
     type: 'expected' | 'received',
     date: Date,
     matcherFn: Function,
-    context: jest.MatcherUtils,
+    options: NotADateErrorOptions = {},
   ) {
     super()
 
@@ -24,9 +29,9 @@ class NotADateError extends Error {
 
     this.message = [
       matcherHint(
-        `${context.isNot ? '.not' : ''}.${matcherFn.name}`,
+        `${options.invert ? '.not' : ''}.${matcherFn.name}`,
         'received',
-        'expected',
+        options.excludeExpected ? '' : 'expected',
       ),
       '',
       `${
@@ -45,10 +50,10 @@ function checkDate(
   type: 'received' | 'expected',
   date: Date,
   matcher: Function,
-  context: jest.MatcherUtils,
+  options: NotADateErrorOptions = {},
 ) {
   if (date instanceof Date === false || !isValid(date)) {
-    throw new NotADateError(type, date, matcher, context)
+    throw new NotADateError(type, date, matcher, options)
   }
 }
 

@@ -21,8 +21,8 @@ export function toBeSameSecondAs(
   received: Date,
   expected: Date,
 ) {
-  checkDate('received', received, toBeSameSecondAs, this)
-  checkDate('expected', expected, toBeSameSecondAs, this)
+  checkDate('received', received, toBeSameSecondAs, {invert: this.isNot})
+  checkDate('expected', expected, toBeSameSecondAs, {invert: this.isNot})
 
   const messageContext = {
     name: toBeSameSecondAs.name,

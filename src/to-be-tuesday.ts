@@ -15,7 +15,10 @@ declare global {
 }
 
 export function toBeTuesday(this: jest.MatcherUtils, received: Date) {
-  checkDate('received', received, toBeTuesday, this)
+  checkDate('received', received, toBeTuesday, {
+    excludeExpected: true,
+    invert: this.isNot,
+  })
 
   const messageContext = {
     name: toBeTuesday.name,

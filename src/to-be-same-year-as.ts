@@ -20,8 +20,8 @@ export function toBeSameYearAs(
   received: Date,
   expected: Date,
 ) {
-  checkDate('received', received, toBeSameYearAs, this)
-  checkDate('expected', expected, toBeSameYearAs, this)
+  checkDate('received', received, toBeSameYearAs, {invert: this.isNot})
+  checkDate('expected', expected, toBeSameYearAs, {invert: this.isNot})
 
   const messageContext = {
     name: toBeSameYearAs.name,

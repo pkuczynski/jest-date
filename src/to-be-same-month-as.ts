@@ -20,8 +20,8 @@ export function toBeSameMonthAs(
   received: Date,
   expected: Date,
 ) {
-  checkDate('received', received, toBeSameMonthAs, this)
-  checkDate('expected', expected, toBeSameMonthAs, this)
+  checkDate('received', received, toBeSameMonthAs, {invert: this.isNot})
+  checkDate('expected', expected, toBeSameMonthAs, {invert: this.isNot})
 
   const messageContext = {
     name: toBeSameMonthAs.name,
