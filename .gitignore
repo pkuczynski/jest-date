@@ -2,3 +2,7 @@ node_modules
 dist
 .vscode
 yarn-error.log
+matchers.js
+matchers.d.ts
+extend-expect.js
+extend-expect.d.ts
