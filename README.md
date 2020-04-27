@@ -16,6 +16,11 @@
 
 ---
 
+[![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+
 ## The problem
 
 You want to use [jest][jest] to write tests that assert how dates compare to eachother. As part of that goal, you want to avoid all the repetitive patterns that arise in doing so.
@@ -475,3 +480,18 @@ MIT
 [node]: https://nodejs.org
 [date-fns]: https://date-fns.org/
 [jest-dom]: https://github.com/testing-library/jest-dom
+
+[version-badge]:
+  https://img.shields.io/npm/v/jest-date.svg?style=flat-square
+[package]: https://www.npmjs.com/package/jest-date
+
+[downloads-badge]:
+  https://img.shields.io/npm/dm/jest-date.svg?style=flat-square
+[npmtrends]: http://www.npmtrends.com/jest-date
+
+[github-watch-badge]:
+  https://img.shields.io/github/watchers/Stefanwullems/jest-date.svg?style=social
+[github-watch]: https://github.com/Stefanwullems/jest-date/watchers
+[github-star-badge]:
+  https://img.shields.io/github/stars/Stefanwullems/jest-date.svg?style=social
+[github-star]: https://github.com/Stefanwullems/jest-date/stargazers
