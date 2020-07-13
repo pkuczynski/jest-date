@@ -23,7 +23,7 @@
 
 ## The problem
 
-You want to use [jest][jest] to write tests that assert how dates compare to eachother. As part of that goal, you want to avoid all the repetitive patterns that arise in doing so.
+You want to use [jest][jest] to write tests that assert how dates compare to eachother. As part of that goal, you want to avoid all the repetitive patterns that arise in doing so and you want to get valueable feedback when tests fail.
 
 ## This solution
 
@@ -39,6 +39,9 @@ clear to read and to maintain.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Matcher types](#matcher-types)
+  - [Relative matchers](#relative-matchers)
+  - [Weekday matchers](#weekday-matchers)
 - [Custom matchers](#custom-matchers)
   - [`toBeBefore`](#tobebefore)
   - [`toBeAfter`](#tobeafter)
@@ -101,6 +104,43 @@ expect.extend({toBeBefore, toBeSameMonthAs})
 > Note: when using TypeScript, this way of importing matchers won't provide the
 > necessary type definitions.
 
+## Matcher types
+
+### Relative matchers
+
+Relative matchers can be used to compare two dates with eachother. 
+When a matcher fails, it will provide a debug message in the following format:
+
+`Expected date {expected_date} {matcher} {received_date}, but it was {difference}.`
+
+Here are some concrete examples:
+
+[`toBeSameSecondAs`](#tobesamesecondas): 
+`Expected date 2020-07-13T22:05:23.670Z to be same second as 2020-07-13T22:05:22.670Z, but it was 1 second after.`
+
+[`toBeBefore`](#tobebefore): 
+`Expected date 1970-01-01T00:00:00.000Z not to be before 2020-01-01T00:00:00.000Z, but it was 50 years before.`
+
+[`toBeSameQuarterAs`](#tobesamequarteras): 
+`Expected date 2020-10-13T22:15:12.304Z to be same quarter as 2020-07-13T22:15:12.304Z, but it was 3 months after.`
+
+### Weekday matchers
+
+Weekday matchers can be used to check if a given date falls on a certain day of the week. 
+When this kind of a matcher fails, it will provide a debug message in either the following formats:
+
+Standard Message: `Expected date {received} to be on a {expected_day}, but it was on a {actual_day}.`
+
+Inverted Message: `Expected date {received} not be on a {expected_day}, but it was`
+
+Here are some concrete examples:
+
+[`toBeMonday`](#tobemonday): 
+`Expected date 2020-07-13T22:25:43.553Z to be on a monday, but it was on a tuesday.`
+
+[`toBeSunday`](#tobesunday): 
+`Expected date 2020-07-11T22:26:33.626Z not to be on a sunday, but it was.`
+
 ## Custom matchers
 
 `jest-date` can work with any library or framework. The custom matcher examples below are written using
@@ -108,6 +148,8 @@ functions from the awesome [date-fns][date-fns] library (e.g. `isBefore`,
 `isSameDayAs`, `formatDistance`, etc.)
 
 ### `toBeBefore`
+
+**Matcher type**: [relative](#relative-matchers)
 
 ```typescript
 toBeBefore(date: Date)
@@ -129,6 +171,8 @@ expect(new Date('2020')).not.toBeBefore(new Date('1970')) // ✔️ pass
 
 ### `toBeAfter`
 
+**Matcher type**: [relative](#relative-matchers)
+
 ```typescript
 toBeAfter(date: Date)
 ```
@@ -147,6 +191,8 @@ expect(new Date('1970')).not.toBeAfter(new Date('2020')) // ✔️ pass
 
 ### `toBeSameSecondAs`
 
+**Matcher type**: [relative](#relative-matchers)
+
 ```typescript
 toBeSameSecondAs(date: Date)
 ```
@@ -154,6 +200,8 @@ toBeSameSecondAs(date: Date)
 This allows you to check whether a date is in the same second as another.
 
 #### Examples
+
+**Matcher type**: [relative](#relative-matchers)
 
 ```javascript
 import {startOfSecond, addSeconds} from 'date-fns'
@@ -170,6 +218,8 @@ expect(addSeconds(date, 2)).not.toBeSameSecondAs(date) // ✔️ pass
 <hr />
 
 ### `toBeSameMinuteAs`
+
+**Matcher type**: [relative](#relative-matchers)
 
 ```typescript
 toBeSameMinuteAs(date: Date)
@@ -195,6 +245,8 @@ expect(addMinutes(date, 2)).not.toBeSameMinuteAs(date) // ✔️ pass
 
 ### `toBeSameHourAs`
 
+**Matcher type**: [relative](#relative-matchers)
+
 ```typescript
 toBeSameHourAs(date: Date)
 ```
@@ -218,6 +270,8 @@ expect(addHours(date, 2)).not.toBeSameHourAs(date) // ✔️ pass
 <hr />
 
 ### `toBeSameDayAs`
+
+**Matcher type**: [relative](#relative-matchers)
 
 ```typescript
 toBeSameDayAs(date: Date)
@@ -243,6 +297,8 @@ expect(addDays(date, 2)).not.toBeSameDayAs(date) // ✔️ pass
 
 ### `toBeSameWeekAs`
 
+**Matcher type**: [relative](#relative-matchers)
+
 ```typescript
 toBeSameWeekAs(date: Date)
 ```
@@ -266,6 +322,8 @@ expect(addWeeks(date, 2)).not.toBeSameWeekAs(date) // ✔️ pass
 <hr />
 
 ### `toBeSameMonthAs`
+
+**Matcher type**: [relative](#relative-matchers)
 
 ```typescript
 toBeSameMonthAs(date: Date)
@@ -291,6 +349,8 @@ expect(addMonths(date, 2)).not.toBeSameMonthAs(date) // ✔️ pass
 
 ### `toBeSameQuarterAs`
 
+**Matcher type**: [relative](#relative-matchers)
+
 ```typescript
 toBeSameQuarterAs(date: Date)
 ```
@@ -314,6 +374,8 @@ expect(addQuarters(date, 2)).not.toBeSameQuarterAs(date) // ✔️ pass
 <hr />
 
 ### `toBeSameYearAs`
+
+**Matcher type**: [relative](#relative-matchers)
 
 ```typescript
 toBeSameYearAs(date: Date)
@@ -339,6 +401,8 @@ expect(addYears(date, 2)).not.toBeSameYearAs(date) // ✔️ pass
 
 ### `toBeMonday`
 
+**Matcher type**: [weekday](#weekday-matchers)
+
 ```typescript
 toBeMonday()
 ```
@@ -355,6 +419,8 @@ expect(new Date()).not.toBeMonday()
 <hr />
 
 ### `toBeTuesday`
+
+**Matcher type**: [weekday](#weekday-matchers)
 
 ```typescript
 toBeTuesday()
@@ -373,6 +439,8 @@ expect(new Date()).not.toBeTuesday()
 
 ### `toBeWednesday`
 
+**Matcher type**: [weekday](#weekday-matchers)
+
 ```typescript
 toBeWednesday()
 ```
@@ -389,6 +457,8 @@ expect(new Date()).not.toBeWednesday()
 <hr />
 
 ### `toBeThursday`
+
+**Matcher type**: [weekday](#weekday-matchers)
 
 ```typescript
 toBeThursday()
@@ -407,6 +477,8 @@ expect(new Date()).not.toBeThursday()
 
 ### `toBeFriday`
 
+**Matcher type**: [weekday](#weekday-matchers)
+
 ```typescript
 toBeFriday()
 ```
@@ -424,6 +496,8 @@ expect(new Date()).not.toBeFriday()
 
 ### `toBeSaturday`
 
+**Matcher type**: [weekday](#weekday-matchers)
+
 ```typescript
 toBeSaturday()
 ```
@@ -440,6 +514,8 @@ expect(new Date()).not.toBeSaturday()
 <hr />
 
 ### `toBeSunday`
+
+**Matcher type**: [weekday](#weekday-matchers)
 
 ```typescript
 toBeSunday()
