@@ -29,7 +29,7 @@ You want to use [jest][jest] to write tests that assert how dates compare to eac
 
 The `jest-date` library provides a set of custom jest matchers
 that you can use to extend jest. These will make your tests more declarative,
-clear to read and to maintain.
+clear to read and to maintain. Next to that, it will give you valueable information as to why your test are failing.
 
 ## Table of Contents
 
