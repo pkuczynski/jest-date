@@ -201,8 +201,6 @@ This allows you to check whether a date is in the same second as another.
 
 #### Examples
 
-**Matcher type**: [relative](#relative-matchers)
-
 ```javascript
 import {startOfSecond, addSeconds} from 'date-fns'
 
