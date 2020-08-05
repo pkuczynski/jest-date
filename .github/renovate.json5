@@ -1,0 +1,18 @@
+{
+  "packageRules": [],
+  "extends": [
+    "config:base"
+  ],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "minor": {
+    "automerge": true
+  },
+  "patch": {
+    "automerge": true
+  },
+  "timezone": "Europe/Amsterdam",
+  "schedule": ["after 8pm and before 6am on every weekday", "every weekend"]
+}
