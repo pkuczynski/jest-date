@@ -19,7 +19,7 @@
     "pretty-format": "25.5.0",
     "rimraf": "3.0.2",
     "ts-jest": "25.5.1",
-    "typescript": "3.8.3"
+    "typescript": "3.9.7"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
