@@ -15,7 +15,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
-    "kcd-scripts": "6.5.1",
+    "kcd-scripts": "6.6.0",
     "pretty-format": "26.5.0",
     "rimraf": "3.0.2",
     "ts-jest": "26.4.1",
