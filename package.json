@@ -16,7 +16,7 @@
     "@typescript-eslint/eslint-plugin": "4.28.0",
     "@typescript-eslint/parser": "4.28.0",
     "kcd-scripts": "10.1.1",
-    "pretty-format": "27.0.2",
+    "pretty-format": "27.0.6",
     "rimraf": "3.0.2",
     "ts-jest": "27.0.3",
     "typescript": "4.3.4"
