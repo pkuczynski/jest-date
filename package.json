@@ -13,8 +13,8 @@
     "jest"
   ],
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "4.32.0",
-    "@typescript-eslint/parser": "4.32.0",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
     "kcd-scripts": "10.1.1",
     "pretty-format": "27.2.4",
     "rimraf": "3.0.2",
