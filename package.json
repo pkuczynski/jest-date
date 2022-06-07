@@ -16,15 +16,15 @@
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
     "kcd-scripts": "10.1.1",
-    "pretty-format": "27.5.1",
+    "pretty-format": "28.1.1",
     "rimraf": "3.0.2",
-    "ts-jest": "27.1.5",
+    "ts-jest": "28.0.4",
     "typescript": "4.7.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
     "date-fns": "^2.12.0",
-    "jest-matcher-utils": "^27.0.0"
+    "jest-matcher-utils": "^28.0.0"
   },
   "scripts": {
     "build": "yarn build:clean && tsc && yarn build:root && yarn build:docs",
