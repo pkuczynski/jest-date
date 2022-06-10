@@ -1,4 +1,4 @@
-NOTE: I will not be updating this repository anymore. Feel free to fork it or to request ownership if you're interested in keeping this package around.
+NOTE: I will not be updating this repository anymore. Feel free to fork it or to request ownership if you're interested in keeping this package around. The [jest-date](https://www.npmjs.com/package/jest-date) npm package will stay around in it's current state.
 
 <div align="center">
 <h1>jest-date</h1>
