@@ -1,3 +1,5 @@
+NOTE: I will not be updating this repository anymore. Feel free to fork it or to request ownership if you're interested in keeping this package around.
+
 <div align="center">
 <h1>jest-date</h1>
 
