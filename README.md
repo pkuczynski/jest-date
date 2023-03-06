@@ -1,19 +1,16 @@
-NOTE: I will not be updating this repository anymore. Feel free to fork it or to request ownership if you're interested in keeping this package around. The [jest-date](https://www.npmjs.com/package/jest-date) npm package will stay around in it's current state.
-
-<div align="center">
-<h1>jest-date</h1>
-
-<a href="https://www.emojione.com/emoji/1f989">
-  <img
-    height="80"
-    width="80"
-    alt="calendar"
-    src="https://raw.githubusercontent.com/Stefanwullems/jest-date/master/other/calendar.png"
-  />
-</a>
-
-<p>Custom jest matchers to compare dates against eachother</p>
-
+<div style="text-align: center;">
+    <h1>jest-date</h1>
+    
+    <a href="https://www.emojione.com/emoji/1f989">
+      <img
+        height="80"
+        width="80"
+        alt="calendar"
+        src="https://raw.githubusercontent.com/Stefanwullems/jest-date/master/other/calendar.png"
+      />
+    </a>
+    
+    <p>Custom jest matchers to compare dates against eachother</p>
 </div>
 
 ---
