@@ -6,8 +6,8 @@
   "repository": "git@github.com:pkuczynski/jest-date.git",
   "url": "https://github.com/pkuczynski/jest-date",
   "contributors": [
-      "Stefan Wullems <stefan@exivity.com>",
-      "Piotr Kuczynski <piotr.kuczynski@gmail.com"
+    "Stefan Wullems <stefan@exivity.com>",
+    "Piotr Kuczynski <piotr.kuczynski@gmail.com"
   ],
   "license": "MIT",
   "private": false,
@@ -20,16 +20,16 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
-    "kcd-scripts": "10.1.1",
-    "pretty-format": "27.5.1",
-    "rimraf": "3.0.2",
-    "ts-jest": "27.1.5",
-    "typescript": "4.7.3"
+    "doctoc": "^2.2.1",
+    "kcd-scripts": "^13.0.0",
+    "pretty-format": "^29.5.0",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@babel/runtime": "^7.9.2",
-    "date-fns": "^2.12.0",
-    "jest-matcher-utils": "^27.0.0"
+    "@babel/runtime": "^7.21.0",
+    "date-fns": "^2.29.3",
+    "jest-matcher-utils": "^29.5.0"
   },
   "scripts": {
     "build": "npm run build:clean && tsc && npm run build:root && npm run build:docs",
@@ -38,7 +38,7 @@
     "publish:major": "npm run build && npm version major && npm publish && npm run build:clean",
     "publish:minor": "npm run build && npm version minor && npm publish && npm run build:clean",
     "publish:patch": "npm run build && npm version patch && npm publish && npm run build:clean",
-    "build:docs": "npm run doctoc . --maxlevel 3 --notitle",
+    "build:docs": "doctoc . --maxlevel 3 --notitle",
     "format": "kcd-scripts format",
     "lint": "kcd-scripts lint",
     "setup": "npm install && npm run validate -s",
