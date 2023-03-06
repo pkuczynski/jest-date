@@ -35,7 +35,6 @@ clear to read and to maintain. Next to that, it will give you valueable informat
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Matcher types](#matcher-types)
