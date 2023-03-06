@@ -1,7 +1,7 @@
-node_modules
-dist
+.idea
 .vscode
-yarn-error.log
+dist/
+node_modules/
 matchers.js
 matchers.d.ts
 extend-expect.js
