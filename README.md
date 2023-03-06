@@ -1,16 +1,16 @@
-<div style="text-align: center;">
-    <h1>jest-date</h1>
-    
-    <a href="https://www.emojione.com/emoji/1f989">
-      <img
-        height="80"
-        width="80"
-        alt="calendar"
-        src="https://raw.githubusercontent.com/Stefanwullems/jest-date/master/other/calendar.png"
-      />
-    </a>
-    
-    <p>Custom jest matchers to compare dates against eachother</p>
+<div align="center">
+<h1>jest-date</h1>
+
+<a href="https://www.emojione.com/emoji/1f989">
+  <img
+    height="80"
+    width="80"
+    alt="calendar"
+    src="https://raw.githubusercontent.com/Stefanwullems/jest-date/master/other/calendar.png"
+  />
+</a>
+
+<p>Custom jest matchers to compare dates against eachother</p>
 </div>
 
 ---
