@@ -3,7 +3,7 @@
   "version": "1.1.5",
   "description": "Custom jest matchers to test dates",
   "main": "dist/index.js",
-  "repository": "git@github.com:pkuczynski/jest-date.git",
+  "repository": "git+https://github.com/pkuczynski/jest-date.git",
   "url": "https://github.com/pkuczynski/jest-date",
   "contributors": [
     "Stefan Wullems <stefan@exivity.com>",
